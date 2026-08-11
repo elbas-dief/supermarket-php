@@ -10,6 +10,9 @@ $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 // var_dump($result[0]['nama'])
 ?>
 
+<a href="/index.php">Home</a>
+<a href="/produk/create.php">Create</a>
+
 <h1 style="text-align: center; margin-bottom:30px;">Daftar Produk</h1>
 
 <ul class="product-list">

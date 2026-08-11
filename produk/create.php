@@ -3,6 +3,9 @@ require __DIR__ . '/../config/koneksi.php';
 require __DIR__ . '/../templates/header.php';
 ?>
 
+<a href="/index.php">Home</a>
+<a href="/produk/create.php">Create</a>
+
 <form action="./store.php" method="post" enctype="multipart/form-data">
     <div>
         <label for="name">Nama</label>
