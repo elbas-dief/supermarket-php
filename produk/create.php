@@ -3,40 +3,40 @@ require __DIR__ . '/../config/koneksi.php';
 require __DIR__ . '/../templates/header.php';
 ?>
 
-<a href="/index.php">Home</a>
-<a href="/produk/create.php">Create</a>
+<!-- CSS -->
+<link rel="stylesheet" href="/style.css">
 
-<form action="./store.php" method="post" enctype="multipart/form-data">
-    <div>
-        <label for="name">Nama</label>
-        <input type="text" name="nama" id="nama">
+<form action="./proses/store.php" method="post" enctype="multipart/form-data" class="form-create container">
+    <div class="d-flex col gap-3 my-2">
+        <label for="nama" class="col-form-label col-3">Nama</label>
+        <input type="text" name="nama" id="nama" class="form-control">
     </div>
-    <div>
-        <label for="harga">Harga</label>
-        <input type="number" name="harga" id="harga">
+    <div class="d-flex col gap-3 my-2">
+        <label for="harga" class="col-form-label col-3">Harga</label>
+        <input type="number" name="harga" id="harga" class="form-control">
     </div>
-    <div>
-        <label for="stock">Stock</label>
-        <input type="number" name="stock" id="stock">
+    <div class="d-flex col gap-3 my-2">
+        <label for="stock" class="col-form-label col-3">Stock</label>
+        <input type="number" name="stock" id="stock" class="form-control">
     </div>
-    <div>
-        <label for="kategori">Kategori</label>
-        <select name="kategori" id="kategori">
+    <div class="d-flex col gap-3 my-2">
+        <label for="kategori" class="col-form-label col-3">Kategori</label>
+        <select name="kategori" id="kategori" class="form-control">
             <option value="">-- Pilih Kategori --</option>
-            <option value="Buah">Buah</option>
-            <option value="Sayur">Sayur</option>
-            <option value="Minuman">Minuman</option>
-            <option value="Sembako">Sembako</option>
-            <option value="Sabun">Sabun</option>
-            <option value="Snack">Snack/option>
-            <option value="Bumbu">Bumbu</option>
+            <?php foreach ($list_kategori as $k): ?>
+                <option value="<?= $k; ?>">
+                    <?= $k; ?>
+                </option>
+            <?php endforeach; ?>
         </select>
     </div>
-    <div>
+    <!-- <div>
         <label for="image">Upload Image</label>
         <input type="file" name="image" id="image">
+    </div> -->
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="my-2 btn btn-primary" style="width: 14%;">Submit</button>
     </div>
-    <button type="submit">submit</button>
 </form>
 
 <?php
