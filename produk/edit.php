@@ -31,14 +31,14 @@ $produk = $conn->query($sql)->fetch_assoc();
     </div>
     <!-- <div>
         <label for="kategori">Kategori</label>
-        <input type="number" name="kategori" id="kategori" value="<?= $produk['kategori']; ?>" class="form-control">
+        <input type="number" name="kategori" id="kategori" value="" class="form-control">
     </div> -->
     <div class="d-flex col gap-3 my-2">
         <label for="kategori" class="col-form-label col-3">Kategori</label>
-        <select name="kategori" id="kategori" value="<?= $produk['kategori']; ?>" class="form-control">
-            <option value="">-- Pilih Kategori --</option>
+        <select name="kategori" id="kategori" value="" class="form-control">
+            <!-- <option value="">-- Pilih Kategori --</option> -->
             <?php foreach ($list_kategori as $k): ?>
-                <option value="<?= $k; ?>" <?= $produk['kategori'] == $k ? 'selected' : '' ?>>
+                <option value="<?= $k; ?>" <?= $produk['kategori'] == $k ? 'selected' : '' ;?>>
                     <?= $k; ?>
                 </option>
             <?php endforeach; ?>
@@ -54,5 +54,6 @@ $produk = $conn->query($sql)->fetch_assoc();
 </form>
 
 <?php
+// var_dump($produk);
 require __DIR__ . '/../templates/footer.php';
 ?>

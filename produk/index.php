@@ -37,8 +37,11 @@ $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 </td>
                 <td><?= $p['stock']; ?></td>
                 <td class="d-flex col p-2 gap-2">
-                    <a href="/produk/edit.php?id=<?= $p['id']; ?>" class="card-item btn btn-warning" style="width: 100%;">Edit</a>
-                    <a href="/produk/proses/delete.php?id=<?= $p['id']; ?>" class="card-item btn btn-danger" style="width: 100%;">Delete</a>
+                    <a href="/produk/edit.php?id=<?= $p['id']; ?>" class="card-item btn btn-warning" style="width: 100%;">
+                        <i class="bi bi-pencil-square" style="color: #fff4d3;"></i>
+                    </a>
+                    <a href="/produk/proses/delete.php?id=<?= $p['id']; ?>" class="card-item btn btn-danger" style="width: 100%;"><i class="bi bi-trash-fill" style="color: #ff808d;"></i>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>
