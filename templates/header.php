@@ -1,7 +1,17 @@
 <?php
 
+function cekLogin() {
+  if (!isset($_SESSION['is_logged_in']) || !$_SESSION['is_logged_in']) {
+    header('location: /login.php');
+    return;
+  }
+}
+
 $img_placeholder = "https://www.svgrepo.com/show/508699/landscape-placeholder.svg";
 $list_kategori = ['Buah', 'Sayur', 'Minuman', 'Sembako', 'Sabun', 'Snack', 'Bumbu'];
+
+session_start();
+// echo $_SESSION['nama_lengkap'];
 
 ?>
 
@@ -26,6 +36,7 @@ $list_kategori = ['Buah', 'Sayur', 'Minuman', 'Sembako', 'Sabun', 'Snack', 'Bumb
         <a class="btn btn-sm btn-light" href="/index.php">Home</a>
         <!-- <a class="btn btn-sm btn-light" href="/produk/create.php">Create</a> -->
         <a class="btn btn-sm btn-outline-light" href="/produk/index.php">Produk</a>
+        <a class="btn btn-sm btn-outline-light" href="/login.php">Login</a>
       </div>
     </div>
   </nav>

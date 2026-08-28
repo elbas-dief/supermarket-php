@@ -6,6 +6,16 @@ require __DIR__ . '/../templates/header.php';
 <!-- CSS -->
 <link rel="stylesheet" href="/style.css">
 
+<?php if (isset($_SESSION['error'])): ?>
+    <div class="alert alert-danger">
+        <?= $_SESSION['error']; ?>
+    </div>
+<?php
+    // Setelah di-display, unset/hilangkan pesan error
+    unset($_SESSION['error']);
+endif;
+?>
+
 <form action="./proses/store.php" method="post" enctype="multipart/form-data" class="form-create container">
     <div class="d-flex col gap-3 my-2">
         <label for="nama" class="col-form-label col-3">Nama</label>
@@ -30,10 +40,10 @@ require __DIR__ . '/../templates/header.php';
             <?php endforeach; ?>
         </select>
     </div>
-    <!-- <div>
-        <label for="image">Upload Image</label>
-        <input type="file" name="image" id="image">
-    </div> -->
+    <div>
+        <label for="image" class="form=label">Upload Image</label>
+        <input type="file" name="image" id="image" class="form-control">
+    </div>
     <div class="d-flex justify-content-end">
         <button type="submit" class="my-2 btn btn-primary" style="width: 14%;">Submit</button>
     </div>

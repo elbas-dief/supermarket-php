@@ -2,6 +2,8 @@
 require __DIR__ . '/config/koneksi.php';
 require __DIR__ . '/templates/header.php';
 
+cekLogin();
+
 // Search
 
 $search = trim($_GET['search'] ?? '');
@@ -55,18 +57,26 @@ $produkList = '';
 
 // echo (int) $resultSearch;
 
-// var_dump($result);
+// var_dump($_SESSION);
+
+if (isset($_SESSION['sukses'])) { ?>
+    <div class="alert alert-success">
+        <?= $_SESSION['sukses']; ?>
+    </div>
+<?php
+unset($_SESSION['sukses']);
+};
 ?>
 
 <h1 style="text-align: center; margin-bottom:30px; font-weight:bold;">Mau Beli Apa Hari Ini?</h1>
 <section>
     <div class="top-bar container">
         <!-- Page -->
-            <div class="page pagination">
-                <?php for ($i = 1; $i <= $totalHalaman; $i++): ?>
-                    <a href="?halaman=<?= $i; ?>&search=<?= urlencode($search) ?>" name="halaman" class="page-link page-item <?= ($i === $halaman) ? 'active' : '' ?>"><?= $i; ?></a>
-                <?php endfor; ?>
-            </div>
+        <div class="page pagination">
+            <?php for ($i = 1; $i <= $totalHalaman; $i++): ?>
+                <a href="?halaman=<?= $i; ?>&search=<?= urlencode($search) ?>" name="halaman" class="page-link page-item <?= ($i === $halaman) ? 'active' : '' ?>"><?= $i; ?></a>
+            <?php endfor; ?>
+        </div>
 
         <!-- Search -->
         <form action="" class="d-flex gap-3 search">
@@ -88,8 +98,13 @@ $produkList = '';
 
     <ul class="product-list container">
         <?php foreach ($produkList as $produk): ?>
+            <!-- Build Image Path -->
+            <?php
+            $image_path = $produk['image'] != NULL ? "./assets/produk/{$produk['image']}" : $img_placeholder;
+            ?>
+
             <li class="card p-2 gap-1">
-                <img src="<?= $produk['image'] ?? $img_placeholder; ?>" alt="<?= $produk['image']; ?>" class="image-product"><br>
+                <img src="<?= $image_path; ?>" alt="<?= $produk['image']; ?>" class="image-product"><br>
                 <div class="nama-harga">
                     <!-- Attack Defender -->
                     <div class="nama" style="font-weight: bold; text-align:start"> <?= htmlspecialchars($produk['nama']); ?> </div>
