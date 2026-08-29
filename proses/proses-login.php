@@ -18,8 +18,8 @@ if (!$user) {
     exit();
 }
 
-// $password = password an diinput user | $user['password'] = hasil fetch dari database
-if (!password_verify(!$password, !$user['password'])) {
+// $password = password yang diinput user | $user['password'] = hasil fetch dari database
+if (!password_verify($password, $user['password'])) {
     header("location: {$_SERVER['HTTP_REFERER']}");
     exit();
 }

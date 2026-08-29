@@ -3,6 +3,8 @@
 require __DIR__ . '/../config/koneksi.php';
 require __DIR__ . '/../templates/header.php';
 
+cekLogin();
+
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 

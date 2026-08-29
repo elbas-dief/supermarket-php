@@ -2,8 +2,6 @@
 require __DIR__ . '/config/koneksi.php';
 require __DIR__ . '/templates/header.php';
 
-cekLogin();
-
 // Search
 
 $search = trim($_GET['search'] ?? '');

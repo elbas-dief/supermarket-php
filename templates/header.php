@@ -37,6 +37,7 @@ session_start();
         <!-- <a class="btn btn-sm btn-light" href="/produk/create.php">Create</a> -->
         <a class="btn btn-sm btn-outline-light" href="/produk/index.php">Produk</a>
         <a class="btn btn-sm btn-outline-light" href="/login.php">Login</a>
+        <a class="btn btn-sm btn-danger" href="/proses/proses-logout.php">Logout</a>
       </div>
     </div>
   </nav>
