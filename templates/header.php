@@ -1,6 +1,7 @@
 <?php
 
-function cekLogin() {
+function cekLogin()
+{
   if (!isset($_SESSION['is_logged_in']) || !$_SESSION['is_logged_in']) {
     header('location: /login.php');
     return;
@@ -32,13 +33,30 @@ session_start();
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="/toko-sederhana/index.php">Toko Sederhana</a>
+      
+      <?php
+      $logoutBar = <<<HTML
       <div>
         <a class="btn btn-sm btn-light" href="/index.php">Home</a>
-        <!-- <a class="btn btn-sm btn-light" href="/produk/create.php">Create</a> -->
+        <a class="btn btn-sm btn-success" href="/login.php">Login</a>
+      </div>
+      HTML;
+
+      $loginBar = <<<HTML
+      <div>
+        <a class="btn btn-sm btn-light" href="/index.php">Home</a>
         <a class="btn btn-sm btn-outline-light" href="/produk/index.php">Produk</a>
-        <a class="btn btn-sm btn-outline-light" href="/login.php">Login</a>
         <a class="btn btn-sm btn-danger" href="/proses/proses-logout.php">Logout</a>
       </div>
+      HTML;
+
+      if (isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in']) {
+        echo $loginBar;
+      } else {
+        echo $logoutBar;
+      }
+      ?>
+
     </div>
   </nav>
 

@@ -52,9 +52,9 @@ $sql = "INSERT INTO products(nama, harga, stock, kategori, image) VALUES (?, ?, 
 $stmt = $conn->prepare($sql);
 $stmt->execute([$nama, $harga, $stock, $kategori, $image_name]);
 
-$_SESSION['sukses'] = "Produk berhasil ditambahkan";
+$_SESSION['registrasi-sukses'] = "Produk berhasil ditambahkan";
 
 // $conn->query($sql);
 
-header("Location: /index.php");
+header("Location: /produk/index.php");
 ?>

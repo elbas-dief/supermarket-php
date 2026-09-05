@@ -27,6 +27,7 @@ if (!password_verify($password, $user['password'])) {
 session_start();
 $_SESSION['is_logged_in'] = true;
 $_SESSION['username'] = $username;
+$_SESSION['login-sukses'] = "Selamat datang kembali!";
 header('location: /produk/index.php');
 
 ?>

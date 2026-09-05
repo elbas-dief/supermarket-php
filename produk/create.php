@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/../config/koneksi.php';
 require __DIR__ . '/../templates/header.php';
+
+cekLogin();
 ?>
 
 <!-- CSS -->
@@ -40,8 +42,8 @@ endif;
             <?php endforeach; ?>
         </select>
     </div>
-    <div>
-        <label for="image" class="form=label">Upload Image</label>
+    <div class="d-flex col gap-3 my-2">
+        <label for="image" class="col-form=label col-3">Upload Image</label>
         <input type="file" name="image" id="image" class="form-control">
     </div>
     <div class="d-flex justify-content-end">

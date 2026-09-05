@@ -1,5 +1,6 @@
 <?php 
 require __DIR__ . '/../../config/koneksi.php';
+session_start();
 
 $id = $_POST['id'];
 $nama = $_POST['nama'];
@@ -22,6 +23,8 @@ $stmt->execute([$nama, $harga, $stock, $kategori, $id]);
 // $sql = "UPDATE products SET nama='$nama', harga=$harga, stock=$stock, kategori='$kategori' WHERE id=$id" ;
 // $conn->query($sql);
 
-header("Location: /index.php")
+$_SESSION['edit-sukses'] = "Produk berhasil diperbaharui";
+
+header("Location: /produk/index.php")
 
 ?>

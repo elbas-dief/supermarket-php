@@ -2,6 +2,8 @@
 require __DIR__ . '/../config/koneksi.php';
 require __DIR__ . '/../templates/header.php';
 
+cekLogin();
+
 // Ambil data dari $_GET
 $id = $_GET['id'];
 
@@ -49,7 +51,7 @@ $produk = $conn->query($sql)->fetch_assoc();
         <input type="file" name="image" id="image">
     </div> -->
     <div style="display: flex; flex-direction:row; justify-content:end;">
-        <button type="submit" class="my-2 btn btn-primary" style="width: 14%;">submit</button>
+        <button type="submit" class="my-2 btn btn-primary" style="width: 14%;">Update</button>
     </div>
 </form>
 
